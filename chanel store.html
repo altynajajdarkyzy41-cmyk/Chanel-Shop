@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHANEL — Rare Collection</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --w:#ffffff;--off:#faf8f5;--cream:#f5f1eb;--beige:#ede8df;
+  --bdr:#d8d0c4;--txt:#1a1a1a;--gr:#7a7a7a;--lg:#b0a99e;--blk:#0a0a0a;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--w);color:var(--txt);font-family:'Montserrat',sans-serif;font-weight:300;font-size:13px;line-height:1.6;}
+
+/* INTRO */
+#intro{position:fixed;inset:0;z-index:999;background:var(--w);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;animation:iout .7s ease 2.2s forwards;}
+@keyframes iout{to{opacity:0;pointer-events:none;}}
+.ilogo{font-family:'Montserrat',sans-serif;font-size:clamp(2rem,6vw,3.5rem);font-weight:600;letter-spacing:.55em;text-transform:uppercase;}
+.iline{width:0;height:1px;background:var(--blk);animation:igrow 1.2s ease .5s forwards;}
+@keyframes igrow{to{width:160px;}}
+.isub{font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gr);opacity:0;animation:ifi .6s ease 1.4s forwards;}
+@keyframes ifi{to{opacity:1;}}
+
+/* ANNOUNCE */
+.ann{background:var(--blk);color:var(--w);text-align:center;padding:.55rem;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;}
+
+/* HEADER */
+header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);border-bottom:1px solid var(--bdr);}
+.hi{max-width:1400px;margin:0 auto;padding:0 3rem;height:64px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;}
+.nl{display:flex;align-items:center;gap:2rem;}
+.ham{display:flex;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:4px;}
+.ham span{display:block;width:20px;height:1px;background:var(--blk);transition:all .3s;}
+.ham.active span:nth-child(1){transform:translateY(5px) rotate(45deg);}
+.ham.active span:nth-child(2){opacity:0;}
+.ham.active span:nth-child(3){transform:translateY(-5px) rotate(-45deg);}
+.mlbl{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;}
+.logo{font-family:'Montserrat',sans-serif;font-size:1.35rem;font-weight:600;letter-spacing:.45em;text-transform:uppercase;text-align:center;}
+.nr{display:flex;align-items:center;justify-content:flex-end;gap:1.4rem;}
+.ib{background:none;border:none;cursor:pointer;color:var(--blk);padding:.3rem;transition:opacity .2s;position:relative;}
+.ib:hover{opacity:.45;}
+.ib svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.5;}
+.cb{position:relative;}
+.cn{position:absolute;top:-5px;right:-5px;width:14px;height:14px;border-radius:50%;background:var(--blk);color:var(--w);font-size:.5rem;font-weight:600;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .25s;}
+.cn.v{opacity:1;}
+/* wishlist badge */
+.wn{position:absolute;top:-5px;right:-5px;width:14px;height:14px;border-radius:50%;background:#c0392b;color:var(--w);font-size:.5rem;font-weight:600;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .25s;}
+.wn.v{opacity:1;}
+
+/* HERO */
+.hero{max-width:860px;margin:0 auto;padding:4rem 2rem 3rem;display:flex;flex-direction:column;align-items:center;text-align:center;gap:1.5rem;opacity:0;animation:fu .8s ease 2.4s forwards;}
+@keyframes fu{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.hframe{width:min(340px,88vw);border:1px solid var(--bdr);position:relative;overflow:hidden;aspect-ratio:3/4;background:var(--cream);}
+.hframe img{width:100%;height:100%;object-fit:cover;filter:grayscale(100%);transition:transform .8s ease;}
+.hframe:hover img{transform:scale(1.04);}
+.hcc{position:absolute;top:1rem;left:1.1rem;font-size:2rem;font-weight:700;opacity:.8;}
+.hlbl{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gr);}
+.htit{font-family:'Montserrat',sans-serif;font-size:clamp(1.35rem,4vw,2rem);font-weight:600;letter-spacing:.15em;text-transform:uppercase;line-height:1.25;}
+.hcta{border:1px solid var(--blk);padding:.7rem 2rem;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--blk);cursor:pointer;background:none;transition:background .25s,color .25s;font-family:'Montserrat',sans-serif;}
+.hcta:hover{background:var(--blk);color:var(--w);}
+hr.div{border:none;border-top:1px solid var(--bdr);max-width:1400px;margin:0 auto;}
+
+/* SHOP LAYOUT */
+.shop{max-width:1400px;margin:0 auto;padding:2rem 3rem 5rem;display:grid;grid-template-columns:240px 1fr;gap:2.5rem;opacity:0;animation:fu .7s ease 2.6s forwards;}
+
+/* SIDEBAR */
+.sidebar{border-right:1px solid var(--bdr);padding-right:2rem;}
+.sb-title{font-size:.58rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;padding-bottom:1rem;border-bottom:1px solid var(--bdr);margin-bottom:1rem;}
+.fgroup{border-bottom:1px solid var(--bdr);margin-bottom:0;}
+.fgroup-hd{display:flex;align-items:center;justify-content:space-between;padding:.85rem 0;cursor:pointer;font-size:.6rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;user-select:none;}
+.fgroup-hd .arr{font-size:.75rem;transition:transform .25s;}
+.fgroup.open .arr{transform:rotate(180deg);}
+.fgroup-body{display:none;padding-bottom:.8rem;}
+.fgroup.open .fgroup-body{display:block;}
+.fcheck{display:flex;align-items:center;gap:.6rem;padding:.45rem 0;cursor:pointer;font-size:.72rem;color:var(--txt);}
+.fcheck input{width:14px;height:14px;border:1px solid var(--bdr);appearance:none;cursor:pointer;position:relative;flex-shrink:0;}
+.fcheck input:checked{background:var(--blk);}
+.fcheck input:checked::after{content:'✓';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--w);font-size:.55rem;}
+.color-dot{width:14px;height:14px;border-radius:50%;border:1px solid var(--bdr);flex-shrink:0;}
+.price-inputs{display:flex;align-items:center;gap:.5rem;padding:.5rem 0;}
+.price-inputs input{width:100%;border:1px solid var(--bdr);padding:.4rem .5rem;font-size:.68rem;font-family:'Montserrat',sans-serif;outline:none;}
+.price-inputs input:focus{border-color:var(--blk);}
+.price-sep{color:var(--lg);font-size:.7rem;flex-shrink:0;}
+.clear-filters{width:100%;margin-top:1.2rem;padding:.55rem;background:none;border:1px solid var(--bdr);color:var(--gr);cursor:pointer;font-family:'Montserrat',sans-serif;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;transition:all .22s;}
+.clear-filters:hover{border-color:var(--blk);color:var(--blk);}
+
+/* PRODUCTS */
+.products-col{}
+.top-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--bdr);}
+.top-bar-left{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;}
+.sf{position:relative;min-width:200px;}
+.sf input{width:100%;background:transparent;border:none;border-bottom:1px solid var(--bdr);color:var(--txt);font-family:'Montserrat',sans-serif;font-weight:300;font-size:.7rem;letter-spacing:.1em;padding:.5rem 1.5rem .5rem .1rem;outline:none;transition:border-color .3s;}
+.sf input::placeholder{color:var(--lg);}
+.sf input:focus{border-color:var(--blk);}
+.sic{position:absolute;right:0;top:50%;transform:translateY(-50%);width:14px;height:14px;stroke:var(--lg);fill:none;stroke-width:1.5;}
+.count-lbl{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--lg);}
+.sort-sel{background:none;border:1px solid var(--bdr);color:var(--txt);font-family:'Montserrat',sans-serif;font-size:.6rem;letter-spacing:.1em;padding:.4rem .8rem;cursor:pointer;outline:none;}
+
+/* GRID */
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:0;}
+
+/* CARD */
+.card{border:.5px solid var(--bdr);margin:-.5px 0 0 -.5px;display:flex;flex-direction:column;background:var(--w);transition:box-shadow .35s ease;position:relative;cursor:pointer;}
+.card:hover{box-shadow:0 8px 40px rgba(0,0,0,.1);z-index:2;}
+.cimg{position:relative;overflow:hidden;background:var(--cream);aspect-ratio:1/1;}
+.cimg img{width:100%;height:100%;object-fit:cover;filter:grayscale(20%);transition:transform .7s cubic-bezier(.25,.46,.45,.94),filter .4s;}
+.card:hover .cimg img{transform:scale(1.05);filter:grayscale(0);}
+.badge{position:absolute;top:.9rem;left:.9rem;font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;padding:.25rem .6rem;background:var(--blk);color:var(--w);}
+.wish-ico{position:absolute;top:.8rem;right:.8rem;background:rgba(255,255,255,.9);border:none;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .2s,background .2s;box-shadow:0 1px 4px rgba(0,0,0,.12);}
+.wish-ico:hover{transform:scale(1.12);}
+.wish-ico svg{width:13px;height:13px;stroke:var(--blk);fill:none;stroke-width:1.5;transition:fill .2s,stroke .2s;}
+.wish-ico.liked{background:#fff0f0;}
+.wish-ico.liked svg{fill:#c0392b;stroke:#c0392b;}
+.cbody{padding:1rem 1.1rem 1.2rem;display:flex;flex-direction:column;gap:.3rem;flex:1;border-top:1px solid var(--beige);}
+.ccat{font-size:.5rem;letter-spacing:.25em;text-transform:uppercase;color:var(--lg);}
+.cname{font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:500;letter-spacing:.05em;line-height:1.35;text-transform:uppercase;}
+.cmaterial{font-size:.6rem;color:var(--gr);font-style:italic;margin-top:.1rem;}
+.cyear{font-size:.55rem;letter-spacing:.15em;color:var(--lg);text-transform:uppercase;}
+.cstate{font-size:.62rem;color:var(--gr);}
+.cbot{display:flex;align-items:center;justify-content:space-between;margin-top:.8rem;padding-top:.8rem;border-top:1px solid var(--beige);}
+.cprice{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:400;}
+.cprice small{font-family:'Montserrat',sans-serif;font-size:.58rem;color:var(--gr);margin-left:2px;}
+.abtn{background:var(--blk);color:var(--w);border:1px solid var(--blk);cursor:pointer;font-family:'Montserrat',sans-serif;font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;padding:.45rem .75rem;transition:background .22s,color .22s;}
+.abtn:hover{background:var(--w);color:var(--blk);}
+.empty{grid-column:1/-1;padding:5rem 0;text-align:center;font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-style:italic;color:var(--lg);}
+
+/* FLY DOT */
+.dot{position:fixed;width:8px;height:8px;border-radius:50%;background:var(--blk);pointer-events:none;z-index:9000;animation:dfly .65s cubic-bezier(.4,0,.2,1) forwards;}
+@keyframes dfly{0%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(.2) translate(var(--dx),var(--dy));}}
+
+/* ═══ PRODUCT MODAL ═══ */
+.modal-ov{position:fixed;inset:0;z-index:500;background:rgba(250,248,245,.65);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .35s;display:flex;align-items:center;justify-content:center;padding:2rem;}
+.modal-ov.open{opacity:1;pointer-events:all;}
+.modal{background:var(--w);width:min(960px,100%);max-height:90vh;overflow-y:auto;position:relative;display:grid;grid-template-columns:1fr 1fr;box-shadow:0 24px 80px rgba(0,0,0,.2);animation:mslide .4s ease;}
+@keyframes mslide{from{transform:translateY(20px);opacity:0}to{transform:none;opacity:1}}
+.modal::-webkit-scrollbar{width:2px;}
+.modal::-webkit-scrollbar-thumb{background:var(--bdr);}
+.modal-img{background:var(--cream);aspect-ratio:1/1;position:relative;overflow:hidden;}
+.modal-img img{width:100%;height:100%;object-fit:cover;filter:grayscale(8%);transition:filter .4s;}
+.modal-img:hover img{filter:grayscale(0);}
+.modal-body{padding:2.5rem 2rem;display:flex;flex-direction:column;gap:.9rem;overflow-y:auto;}
+.modal-pre{font-size:.55rem;letter-spacing:.28em;text-transform:uppercase;color:var(--lg);}
+.modal-name{font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:600;letter-spacing:.04em;line-height:1.25;}
+/* material + history tabs */
+.modal-tabs{display:flex;gap:0;border-bottom:1px solid var(--bdr);margin-top:.2rem;}
+.mtab{background:none;border:none;font-family:'Montserrat',sans-serif;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;padding:.5rem 1rem .5rem 0;cursor:pointer;color:var(--lg);border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .2s,border-color .2s;}
+.mtab.active{color:var(--blk);border-bottom-color:var(--blk);}
+.modal-tab-content{display:none;font-size:.72rem;color:var(--gr);line-height:1.7;}
+.modal-tab-content.active{display:block;}
+.modal-material-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem .8rem;margin-top:.4rem;}
+.mg-item{display:flex;flex-direction:column;gap:.1rem;}
+.mg-label{font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:var(--lg);}
+.mg-val{font-size:.68rem;color:var(--txt);}
+.modal-price{font-family:'Cormorant Garamond',serif;font-size:1.85rem;font-weight:400;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);padding:.8rem 0;}
+.modal-avail{font-size:.65rem;color:var(--gr);}
+.modal-actions{display:grid;grid-template-columns:1fr auto;gap:.6rem;}
+.modal-add{padding:.95rem;background:var(--blk);color:var(--w);border:none;cursor:pointer;font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:500;letter-spacing:.25em;text-transform:uppercase;transition:background .22s;}
+.modal-add:hover{background:#333;}
+.modal-wish{padding:.95rem 1.2rem;border:1px solid var(--bdr);background:none;cursor:pointer;display:flex;align-items:center;gap:.4rem;font-family:'Montserrat',sans-serif;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;transition:border-color .22s,background .22s;white-space:nowrap;}
+.modal-wish:hover{border-color:var(--blk);}
+.modal-wish.wished{border-color:#c0392b;background:#fff0f0;color:#c0392b;}
+.modal-wish svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.5;transition:fill .2s;}
+.modal-wish.wished svg{fill:#c0392b;}
+.modal-urgent{font-size:.68rem;color:var(--txt);}
+.modal-urgent strong{font-weight:600;}
+.modal-delivery{font-size:.68rem;color:var(--txt);line-height:1.6;}
+.modal-return{background:var(--cream);padding:.85rem 1rem;font-size:.63rem;color:var(--gr);line-height:1.5;}
+.modal-close{position:absolute;top:1rem;right:1rem;z-index:10;background:rgba(255,255,255,.92);border:none;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:.9rem;color:var(--gr);transition:color .2s,background .2s;box-shadow:0 1px 4px rgba(0,0,0,.1);}
+.modal-close:hover{color:var(--blk);background:#fff;}
+.modal-breadcrumb{font-size:.52rem;letter-spacing:.12em;color:var(--lg);margin-top:auto;padding-top:.8rem;border-top:1px solid var(--bdr);}
+.modal-breadcrumb span{color:var(--blk);}
+.modal-collection-tag{display:inline-block;font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;padding:.22rem .65rem;border:1px solid var(--bdr);color:var(--gr);margin-bottom:.2rem;}
+
+/* CART PANEL */
+.ov{position:fixed;inset:0;z-index:200;background:rgba(250,248,245,.55);backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity .35s;}
+.ov.open{opacity:1;pointer-events:all;}
+.cp{position:fixed;top:0;right:0;width:min(460px,100vw);height:100vh;background:var(--w);border-left:1px solid var(--bdr);display:flex;flex-direction:column;transform:translateX(100%);transition:transform .45s cubic-bezier(.25,.46,.45,.94);z-index:201;box-shadow:-8px 0 40px rgba(0,0,0,.08);}
+.ov.open .cp{transform:translateX(0);}
+.cph{padding:1.5rem 2rem;border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between;}
+.cpt{font-size:.65rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;}
+.cpc{background:none;border:none;cursor:pointer;font-size:1rem;color:var(--gr);transition:color .2s;}
+.cpc:hover{color:var(--blk);}
+.cpb{flex:1;overflow-y:auto;padding:1.5rem 2rem;}
+.cpb::-webkit-scrollbar{width:2px;}
+.cpb::-webkit-scrollbar-thumb{background:var(--bdr);}
+.cpe{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.8rem;color:var(--lg);}
+.cpei{font-size:2rem;opacity:.4;}
+.cpe p{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;}
+.cpi{display:grid;grid-template-columns:72px 1fr 20px;gap:1rem;padding:1.2rem 0;border-bottom:1px solid var(--beige);animation:ciin .28s ease;}
+@keyframes ciin{from{opacity:0;transform:translateX(12px)}to{opacity:1;transform:none}}
+.cpiimg{width:72px;height:72px;object-fit:cover;border:1px solid var(--beige);filter:grayscale(15%);}
+.cpii{display:flex;flex-direction:column;gap:.25rem;justify-content:center;}
+.cpicat{font-size:.5rem;letter-spacing:.22em;text-transform:uppercase;color:var(--lg);}
+.cpinm{font-family:'Montserrat',sans-serif;font-size:.65rem;font-weight:500;text-transform:uppercase;letter-spacing:.05em;line-height:1.3;}
+.cpiprice{font-size:.63rem;color:var(--gr);margin-top:.1rem;}
+.cpidel{background:none;border:none;cursor:pointer;color:var(--lg);font-size:.85rem;align-self:start;padding:.2rem;transition:color .2s;}
+.cpidel:hover{color:#c0392b;}
+.cpf{padding:1.5rem 2rem;border-top:1px solid var(--bdr);}
+.cptrow{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1.2rem;}
+.cptlbl{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gr);}
+.cptnum{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:400;}
+.cptnum small{font-family:'Montserrat',sans-serif;font-size:.63rem;color:var(--gr);margin-left:3px;}
+.chk{width:100%;padding:.95rem;background:var(--blk);color:var(--w);border:none;cursor:pointer;font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:500;letter-spacing:.3em;text-transform:uppercase;transition:background .25s;}
+.chk:hover{background:#333;}
+.clr{width:100%;padding:.7rem;margin-top:.6rem;background:none;border:1px solid var(--bdr);color:var(--gr);cursor:pointer;font-family:'Montserrat',sans-serif;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;transition:all .22s;}
+.clr:hover{border-color:#c0392b;color:#c0392b;}
+
+/* ═══ MEGA OVERLAY PANELS ═══ */
+.panel-ov{position:fixed;inset:0;z-index:300;background:rgba(250,248,245,.65);backdrop-filter:blur(5px);opacity:0;pointer-events:none;transition:opacity .35s;}
+.panel-ov.open{opacity:1;pointer-events:all;}
+/* Slide from left */
+.panel-left{position:fixed;top:0;left:0;height:100vh;width:min(420px,100vw);background:var(--w);border-right:1px solid var(--bdr);display:flex;flex-direction:column;transform:translateX(-100%);transition:transform .42s cubic-bezier(.25,.46,.45,.94);z-index:301;box-shadow:8px 0 40px rgba(0,0,0,.07);}
+.panel-ov.open .panel-left{transform:translateX(0);}
+/* Center panels */
+.panel-center{position:fixed;top:50%;left:50%;transform:translate(-50%,-40%);width:min(540px,96vw);max-height:88vh;overflow-y:auto;background:var(--w);border:1px solid var(--bdr);box-shadow:0 24px 80px rgba(0,0,0,.18);opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;z-index:301;}
+.panel-center.open{opacity:1;pointer-events:all;transform:translate(-50%,-50%);}
+.panel-center::-webkit-scrollbar{width:2px;}
+.panel-center::-webkit-scrollbar-thumb{background:var(--bdr);}
+
+/* PANEL HEADER */
+.pnl-hd{padding:1.5rem 2rem;border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+.pnl-title{font-size:.62rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;}
+.pnl-close{background:none;border:none;cursor:pointer;font-size:1rem;color:var(--gr);width:28px;height:28px;display:flex;align-items:center;justify-content:center;transition:color .2s;}
+.pnl-close:hover{color:var(--blk);}
+
+/* MENU PANEL */
+.menu-nav{flex:1;overflow-y:auto;padding:1.5rem 0;}
+.menu-section{padding:0 2rem;margin-bottom:1.5rem;}
+.menu-section-title{font-size:.5rem;letter-spacing:.28em;text-transform:uppercase;color:var(--lg);padding-bottom:.6rem;border-bottom:1px solid var(--beige);margin-bottom:.5rem;}
+.menu-item{display:block;padding:.7rem 0;font-size:.78rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--txt);cursor:pointer;border-bottom:1px solid var(--beige);transition:color .2s;text-decoration:none;}
+.menu-item:hover{color:var(--lg);}
+.menu-item:last-child{border-bottom:none;}
+.menu-footer{padding:1.5rem 2rem;border-top:1px solid var(--bdr);flex-shrink:0;}
+.menu-footer p{font-size:.62rem;color:var(--gr);line-height:1.8;}
+.menu-footer a{color:var(--txt);}
+
+/* WISHLIST PANEL */
+.wl-body{flex:1;overflow-y:auto;padding:1.5rem 2rem;}
+.wl-empty{height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.8rem;color:var(--lg);}
+.wl-empty .wle-icon{font-size:2rem;opacity:.35;}
+.wl-empty p{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;}
+.wl-item{display:grid;grid-template-columns:64px 1fr auto;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--beige);animation:ciin .25s ease;}
+.wliimg{width:64px;height:64px;object-fit:cover;border:1px solid var(--beige);filter:grayscale(12%);cursor:pointer;}
+.wlii{display:flex;flex-direction:column;gap:.2rem;justify-content:center;}
+.wlicat{font-size:.48rem;letter-spacing:.22em;text-transform:uppercase;color:var(--lg);}
+.wlinm{font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:500;text-transform:uppercase;letter-spacing:.04em;cursor:pointer;}
+.wlinm:hover{text-decoration:underline;}
+.wliprice{font-size:.6rem;color:var(--gr);}
+.wlidel{background:none;border:none;cursor:pointer;color:var(--lg);font-size:.82rem;align-self:start;padding:.2rem;transition:color .2s;}
+.wlidel:hover{color:#c0392b;}
+
+/* ACCOUNT PANEL */
+.acc-body{padding:2.5rem 2.5rem;}
+.acc-tabs{display:flex;border-bottom:1px solid var(--bdr);margin-bottom:2rem;}
+.acc-tab{background:none;border:none;font-family:'Montserrat',sans-serif;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;padding:.6rem 1.2rem .6rem 0;cursor:pointer;color:var(--lg);border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .2s,border-color .2s;}
+.acc-tab.active{color:var(--blk);border-bottom-color:var(--blk);}
+.acc-form{display:flex;flex-direction:column;gap:1.1rem;}
+.acc-form.hidden{display:none;}
+.fld{display:flex;flex-direction:column;gap:.35rem;}
+.fld label{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gr);}
+.fld input{border:1px solid var(--bdr);padding:.7rem .9rem;font-family:'Montserrat',sans-serif;font-size:.72rem;outline:none;transition:border-color .2s;background:var(--w);}
+.fld input:focus{border-color:var(--blk);}
+.fld-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.acc-btn{width:100%;padding:.95rem;background:var(--blk);color:var(--w);border:none;cursor:pointer;font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:500;letter-spacing:.3em;text-transform:uppercase;transition:background .25s;margin-top:.5rem;}
+.acc-btn:hover{background:#333;}
+.acc-alt{font-size:.62rem;color:var(--gr);text-align:center;margin-top:.8rem;}
+.acc-alt a{color:var(--txt);cursor:pointer;text-decoration:underline;}
+.acc-divider{display:flex;align-items:center;gap:1rem;margin:.5rem 0;}
+.acc-divider::before,.acc-divider::after{content:'';flex:1;height:1px;background:var(--bdr);}
+.acc-divider span{font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;color:var(--lg);}
+.acc-logged{display:none;flex-direction:column;gap:1.2rem;}
+.acc-logged.show{display:flex;}
+.acc-avatar{width:56px;height:56px;border-radius:50%;background:var(--cream);border:1px solid var(--bdr);display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:var(--lg);}
+.acc-name{font-family:'Montserrat',sans-serif;font-size:.82rem;font-weight:500;letter-spacing:.04em;}
+.acc-email{font-size:.65rem;color:var(--gr);}
+.acc-menu-item{display:flex;align-items:center;justify-content:space-between;padding:.7rem 0;border-bottom:1px solid var(--beige);font-size:.68rem;cursor:pointer;transition:color .2s;}
+.acc-menu-item:hover{color:var(--lg);}
+.acc-logout{width:100%;padding:.75rem;background:none;border:1px solid var(--bdr);color:var(--gr);cursor:pointer;font-family:'Montserrat',sans-serif;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;transition:all .22s;margin-top:.5rem;}
+.acc-logout:hover{border-color:#c0392b;color:#c0392b;}
+
+/* CHECKOUT PANEL */
+.co-body{padding:2rem 2.5rem 2.5rem;}
+.co-step{display:none;}
+.co-step.active{display:block;}
+.co-step-title{font-size:.6rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;margin-bottom:1.5rem;padding-bottom:.8rem;border-bottom:1px solid var(--bdr);}
+.co-steps-nav{display:flex;gap:0;margin-bottom:2rem;}
+.co-sn{font-size:.52rem;letter-spacing:.15em;text-transform:uppercase;padding:.4rem 0;color:var(--lg);border-bottom:2px solid transparent;margin-right:1.5rem;cursor:default;}
+.co-sn.done{color:var(--gr);border-bottom-color:var(--gr);}
+.co-sn.active{color:var(--blk);border-bottom-color:var(--blk);}
+.co-summary{margin-bottom:1.5rem;}
+.co-sum-item{display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid var(--beige);font-size:.68rem;}
+.co-sum-total{display:flex;justify-content:space-between;padding:.8rem 0;font-size:.8rem;font-weight:500;}
+.co-total-price{font-family:'Cormorant Garamond',serif;font-size:1.3rem;}
+.co-btn{width:100%;padding:.95rem;background:var(--blk);color:var(--w);border:none;cursor:pointer;font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:500;letter-spacing:.3em;text-transform:uppercase;transition:background .25s;margin-top:1rem;}
+.co-btn:hover{background:#333;}
+.co-back{background:none;border:none;font-family:'Montserrat',sans-serif;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gr);cursor:pointer;margin-top:.8rem;display:block;transition:color .2s;}
+.co-back:hover{color:var(--blk);}
+.co-success{text-align:center;padding:2rem 0;}
+.co-success .cs-icon{font-size:2.5rem;margin-bottom:1rem;}
+.co-success h3{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;margin-bottom:.6rem;}
+.co-success p{font-size:.7rem;color:var(--gr);line-height:1.7;}
+.payment-methods{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.6rem;margin:.8rem 0;}
+.pm{border:1px solid var(--bdr);padding:.6rem;text-align:center;cursor:pointer;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;transition:border-color .2s,background .2s;}
+.pm:hover,.pm.sel{border-color:var(--blk);background:var(--cream);}
+
+/* PRE-FOOTER */
+.prefooter{border-top:1px solid var(--bdr);background:var(--w);}
+.pf-inner{max-width:1400px;margin:0 auto;padding:3rem;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
+.pf-col h4{font-size:.62rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;margin-bottom:.9rem;}
+.pf-col p{font-size:.7rem;color:var(--gr);line-height:1.7;}
+.pf-col a{font-size:.7rem;color:var(--txt);text-decoration:underline;cursor:pointer;}
+.pf-search{display:flex;align-items:center;gap:.5rem;border-bottom:1px solid var(--bdr);padding:.5rem 0;margin-top:.8rem;}
+.pf-search input{flex:1;background:none;border:none;outline:none;font-family:'Montserrat',sans-serif;font-size:.7rem;color:var(--txt);}
+.pf-search input::placeholder{color:var(--lg);}
+.pf-search svg{width:15px;height:15px;stroke:var(--gr);fill:none;stroke-width:1.5;cursor:pointer;flex-shrink:0;}
+
+/* FOOTER */
+footer{background:var(--blk);color:var(--w);}
+.ft-logo{text-align:center;padding:3.5rem 0 2rem;font-family:'Montserrat',sans-serif;font-size:1.8rem;font-weight:600;letter-spacing:.55em;text-transform:uppercase;}
+.ft-cols{max-width:1400px;margin:0 auto;padding:0 3rem 2.5rem;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;border-top:1px solid rgba(255,255,255,.08);padding-top:2.5rem;}
+.ft-col h5{font-size:.58rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;margin-bottom:1rem;color:var(--w);}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:.6rem;}
+.ft-col ul li a{font-size:.68rem;color:rgba(255,255,255,.55);text-decoration:none;cursor:pointer;transition:color .2s;}
+.ft-col ul li a:hover{color:var(--w);}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.1);padding:1.5rem 3rem;max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;}
+.ft-contrast{display:flex;align-items:center;gap:.8rem;font-size:.62rem;color:rgba(255,255,255,.5);}
+.toggle{width:36px;height:20px;background:rgba(255,255,255,.2);border-radius:10px;position:relative;cursor:pointer;border:none;}
+.toggle::after{content:'';position:absolute;top:3px;left:3px;width:14px;height:14px;border-radius:50%;background:var(--w);transition:left .2s;}
+.ft-lang{font-size:.6rem;color:rgba(255,255,255,.4);cursor:pointer;text-decoration:underline;}
+
+@media(max-width:900px){
+  .shop{grid-template-columns:1fr;}
+  .sidebar{display:none;}
+  .modal{grid-template-columns:1fr;}
+  .modal-img{aspect-ratio:4/3;}
+  .pf-inner,.ft-cols{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:600px){
+  .hi,.shop{padding-left:1.2rem;padding-right:1.2rem;}
+  .pgrid{grid-template-columns:1fr 1fr;}
+  .mlbl{display:none;}
+  .pf-inner,.ft-cols{grid-template-columns:1fr;}
+  .fld-row{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- INTRO -->
+<div id="intro">
+  <div class="ilogo">CHANEL</div>
+  <div class="iline"></div>
+  <div class="isub">Rare Collection · Exclusive Boutique</div>
+</div>
+
+<div class="ann">Бесплатная доставка по Казахстану при заказе от 500 000 ₸ · Бесплатный возврат в течение 30 дней</div>
+
+<header>
+  <div class="hi">
+    <nav class="nl">
+      <button class="ham" id="hamBtn" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+      <span class="mlbl" onclick="toggleMenu()">Меню</span>
+    </nav>
+    <div class="logo">CHANEL</div>
+    <div class="nr">
+      <button class="ib" onclick="openSearch()" title="Поиск">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg>
+      </button>
+      <button class="ib" onclick="openAccount()" title="Аккаунт">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      </button>
+      <button class="ib" onclick="openWishlist()" title="Избранное">
+        <svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+        <span class="wn" id="wc">0</span>
+      </button>
+      <button class="ib cb" onclick="openCart()" title="Корзина">
+        <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="cn" id="cc">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hframe">
+    <span class="hcc">◎</span>
+    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Chanel Rare">
+  </div>
+  <p class="hlbl">Сумки · Редкие предложения · Pre-Owned</p>
+  <h1 class="htit">Rare Bags<br>Collection 2026</h1>
+  <button class="hcta" onclick="document.querySelector('.shop').scrollIntoView({behavior:'smooth'})">Смотреть коллекцию</button>
+</section>
+
+<hr class="div">
+
+<!-- SHOP -->
+<div class="shop">
+  <aside class="sidebar">
+    <div class="sb-title">Фильтры</div>
+    <div class="fgroup open" id="fg-state">
+      <div class="fgroup-hd" onclick="toggleFG('fg-state')">Состояние <span class="arr">∧</span></div>
+      <div class="fgroup-body">
+        <label class="fcheck"><input type="checkbox" data-filter="state" value="new-tag" onchange="applyFilters()"> Новое с биркой</label>
+        <label class="fcheck"><input type="checkbox" data-filter="state" value="new" onchange="applyFilters()"> Новое</label>
+        <label class="fcheck"><input type="checkbox" data-filter="state" value="excellent" onchange="applyFilters()"> Отличное</label>
+        <label class="fcheck"><input type="checkbox" data-filter="state" value="good" onchange="applyFilters()"> Хорошее</label>
+        <label class="fcheck"><input type="checkbox" data-filter="state" value="fair" onchange="applyFilters()"> Удовлетворительное</label>
+      </div>
+    </div>
+    <div class="fgroup" id="fg-color">
+      <div class="fgroup-hd" onclick="toggleFG('fg-color')">Цвет <span class="arr">∨</span></div>
+      <div class="fgroup-body">
+        <label class="fcheck"><span class="color-dot" style="background:#1a1a1a"></span><input type="checkbox" data-filter="color" value="black" onchange="applyFilters()"> Чёрный</label>
+        <label class="fcheck"><span class="color-dot" style="background:#e8dcc8;border-color:#c8b89a"></span><input type="checkbox" data-filter="color" value="beige" onchange="applyFilters()"> Бежевый</label>
+        <label class="fcheck"><span class="color-dot" style="background:#8b1a1a"></span><input type="checkbox" data-filter="color" value="burgundy" onchange="applyFilters()"> Бордовый</label>
+        <label class="fcheck"><span class="color-dot" style="background:#c8a875"></span><input type="checkbox" data-filter="color" value="gold" onchange="applyFilters()"> Золотой</label>
+        <label class="fcheck"><span class="color-dot" style="background:#e8e0d5;border-color:#c8b89a"></span><input type="checkbox" data-filter="color" value="white" onchange="applyFilters()"> Белый</label>
+      </div>
+    </div>
+    <div class="fgroup" id="fg-price">
+      <div class="fgroup-hd" onclick="toggleFG('fg-price')">Цена <span class="arr">∨</span></div>
+      <div class="fgroup-body">
+        <div class="price-inputs">
+          <input type="number" id="pmin" placeholder="От" oninput="applyFilters()">
+          <span class="price-sep">—</span>
+          <input type="number" id="pmax" placeholder="До" oninput="applyFilters()">
+        </div>
+      </div>
+    </div>
+    <div class="fgroup" id="fg-cat">
+      <div class="fgroup-hd" onclick="toggleFG('fg-cat')">Категория <span class="arr">∨</span></div>
+      <div class="fgroup-body">
+        <label class="fcheck"><input type="checkbox" data-filter="cat" value="classic" onchange="applyFilters()"> Classic</label>
+        <label class="fcheck"><input type="checkbox" data-filter="cat" value="limited" onchange="applyFilters()"> Limited</label>
+        <label class="fcheck"><input type="checkbox" data-filter="cat" value="archive" onchange="applyFilters()"> Archive</label>
+        <label class="fcheck"><input type="checkbox" data-filter="cat" value="couture" onchange="applyFilters()"> Couture</label>
+      </div>
+    </div>
+    <button class="clear-filters" onclick="clearFilters()">Сбросить фильтры</button>
+  </aside>
+
+  <div class="products-col">
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <div class="sf">
+          <input type="text" id="si" placeholder="Поиск..." oninput="applyFilters()">
+          <svg class="sic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg>
+        </div>
+        <span class="count-lbl"><span id="vc">15</span> наименований</span>
+      </div>
+      <select class="sort-sel" id="sortSel" onchange="applyFilters()">
+        <option value="default">По умолчанию</option>
+        <option value="price-asc">Цена: по возрастанию</option>
+        <option value="price-desc">Цена: по убыванию</option>
+        <option value="name-asc">Название: A–Z</option>
+        <option value="year-desc">Новинки</option>
+      </select>
+    </div>
+    <div class="pgrid" id="grid"></div>
+  </div>
+</div>
+
+<!-- PRODUCT MODAL -->
+<div class="modal-ov" id="mOv" onclick="handleMOv(event)">
+  <div class="modal" id="mBox">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-img"><img id="mImg" src="" alt=""></div>
+    <div class="modal-body">
+      <p class="modal-pre" id="mPre"></p>
+      <h2 class="modal-name" id="mName"></h2>
+      <span class="modal-collection-tag" id="mCollTag"></span>
+      <div class="modal-tabs">
+        <button class="mtab active" onclick="switchTab(0)">История</button>
+        <button class="mtab" onclick="switchTab(1)">Материалы</button>
+        <button class="mtab" onclick="switchTab(2)">Детали</button>
+      </div>
+      <div class="modal-tab-content active" id="mtc0"></div>
+      <div class="modal-tab-content" id="mtc1">
+        <div class="modal-material-grid" id="mMatGrid"></div>
+      </div>
+      <div class="modal-tab-content" id="mtc2" id="mtc2"></div>
+      <div class="modal-price" id="mPrice"></div>
+      <p class="modal-avail" id="mAvail">Доступно только в одном размере</p>
+      <div class="modal-actions">
+        <button class="modal-add" id="mAddBtn" onclick="addFromModal()">Добавить в корзину</button>
+        <button class="modal-wish" id="mWishBtn" onclick="toggleWishModal()">
+          <svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+          <span id="mWishTxt">Избранное</span>
+        </button>
+      </div>
+      <p class="modal-urgent"><strong>Последний экземпляр</strong> — не упустите!</p>
+      <p class="modal-delivery" id="mDelivery"></p>
+      <div class="modal-return">Бесплатный возврат в течение 30 дней | Мы можем забрать посылку у вас дома</div>
+      <p class="modal-breadcrumb" id="mBread"></p>
+    </div>
+  </div>
+</div>
+
+<!-- CART PANEL -->
+<div class="ov" id="ov" onclick="hov(event)">
+  <div class="cp">
+    <div class="cph"><span class="cpt">Ваша корзина</span><button class="cpc" onclick="closeCart()">✕</button></div>
+    <div class="cpb" id="cpb"></div>
+    <div class="cpf" id="cpf" style="display:none">
+      <div class="cptrow"><span class="cptlbl">Итого</span><span class="cptnum" id="cptotal">0 <small>₸</small></span></div>
+      <button class="chk" onclick="closeCart();openCheckout()">Оформить заказ</button>
+      <button class="clr" onclick="clearCart()">Очистить корзину</button>
+    </div>
+  </div>
+</div>
+
+<!-- MENU PANEL -->
+<div class="panel-ov" id="menuOv" onclick="if(event.target===this)closeMenu()">
+  <div class="panel-left">
+    <div class="pnl-hd">
+      <span class="pnl-title">Навигация</span>
+      <button class="pnl-close" onclick="closeMenu()">✕</button>
+    </div>
+    <nav class="menu-nav">
+      <div class="menu-section">
+        <div class="menu-section-title">Коллекции</div>
+        <a class="menu-item" onclick="filterByCategory('classic');closeMenu()">Classic — Вне времени</a>
+        <a class="menu-item" onclick="filterByCategory('limited');closeMenu()">Limited — Ограниченные серии</a>
+        <a class="menu-item" onclick="filterByCategory('archive');closeMenu()">Archive — Архивные вещи</a>
+        <a class="menu-item" onclick="filterByCategory('couture');closeMenu()">Couture — Высокая мода</a>
+      </div>
+      <div class="menu-section">
+        <div class="menu-section-title">Каталог</div>
+        <a class="menu-item" onclick="filterByCategory('');closeMenu()">Все товары</a>
+        <a class="menu-item" onclick="sortBy('price-asc');closeMenu()">Сортировать по цене ↑</a>
+        <a class="menu-item" onclick="sortBy('year-desc');closeMenu()">Новые поступления</a>
+      </div>
+      <div class="menu-section">
+        <div class="menu-section-title">Профиль</div>
+        <a class="menu-item" onclick="closeMenu();openAccount()">Войти / Зарегистрироваться</a>
+        <a class="menu-item" onclick="closeMenu();openWishlist()">Избранное</a>
+        <a class="menu-item" onclick="closeMenu();openCart()">Корзина</a>
+      </div>
+    </nav>
+    <div class="menu-footer">
+      <p>Телефон: <a href="tel:+77273555555">+7 727 355 55 55</a><br>Пн–Пт: 10:00–18:00</p>
+    </div>
+  </div>
+</div>
+
+<!-- WISHLIST PANEL -->
+<div class="panel-ov" id="wlOv" onclick="if(event.target===this)closeWishlist()">
+  <div class="panel-left">
+    <div class="pnl-hd">
+      <span class="pnl-title">Избранное</span>
+      <button class="pnl-close" onclick="closeWishlist()">✕</button>
+    </div>
+    <div class="wl-body" id="wlBody"></div>
+  </div>
+</div>
+
+<!-- ACCOUNT PANEL -->
+<div class="panel-center" id="accPanel">
+  <div class="pnl-hd">
+    <span class="pnl-title">Аккаунт</span>
+    <button class="pnl-close" onclick="closeAccount()">✕</button>
+  </div>
+  <div class="acc-body">
+    <!-- logged out -->
+    <div id="accAuth">
+      <div class="acc-tabs">
+        <button class="acc-tab active" onclick="switchAccTab('login')">Войти</button>
+        <button class="acc-tab" onclick="switchAccTab('register')">Регистрация</button>
+      </div>
+      <!-- LOGIN -->
+      <div class="acc-form" id="accLogin">
+        <div class="fld">
+          <label>Email</label>
+          <input type="email" id="loginEmail" placeholder="your@email.com">
+        </div>
+        <div class="fld">
+          <label>Пароль</label>
+          <input type="password" id="loginPass" placeholder="••••••••">
+        </div>
+        <button class="acc-btn" onclick="doLogin()">Войти</button>
+        <p class="acc-alt"><a>Забыли пароль?</a></p>
+        <div class="acc-divider"><span>или</span></div>
+        <button class="acc-btn" style="background:var(--cream);color:var(--blk);border:1px solid var(--bdr);" onclick="doGuestLogin()">Продолжить как гость</button>
+      </div>
+      <!-- REGISTER -->
+      <div class="acc-form hidden" id="accRegister">
+        <div class="fld-row">
+          <div class="fld"><label>Имя</label><input type="text" id="regFirst" placeholder="Алия"></div>
+          <div class="fld"><label>Фамилия</label><input type="text" id="regLast" placeholder="Сейткали"></div>
+        </div>
+        <div class="fld">
+          <label>Email</label>
+          <input type="email" id="regEmail" placeholder="your@email.com">
+        </div>
+        <div class="fld">
+          <label>Пароль</label>
+          <input type="password" id="regPass" placeholder="Минимум 8 символов">
+        </div>
+        <div class="fld">
+          <label>Телефон</label>
+          <input type="tel" id="regPhone" placeholder="+7 (___) ___ __ __">
+        </div>
+        <button class="acc-btn" onclick="doRegister()">Создать аккаунт</button>
+      </div>
+    </div>
+    <!-- logged in -->
+    <div class="acc-logged" id="accLogged">
+      <div style="display:flex;align-items:center;gap:1rem;">
+        <div class="acc-avatar">◇</div>
+        <div>
+          <div class="acc-name" id="accName">—</div>
+          <div class="acc-email" id="accEmailDisplay">—</div>
+        </div>
+      </div>
+      <div>
+        <div class="acc-menu-item" onclick="alert('История заказов будет здесь')">Мои заказы <span>›</span></div>
+        <div class="acc-menu-item" onclick="closeAccount();openWishlist()">Избранное <span>›</span></div>
+        <div class="acc-menu-item" onclick="alert('Настройки профиля')">Настройки <span>›</span></div>
+        <div class="acc-menu-item" onclick="alert('Мои адреса')">Адреса доставки <span>›</span></div>
+      </div>
+      <button class="acc-logout" onclick="doLogout()">Выйти из аккаунта</button>
+    </div>
+  </div>
+</div>
+
+<!-- CHECKOUT PANEL -->
+<div class="panel-center" id="coPanel">
+  <div class="pnl-hd">
+    <span class="pnl-title">Оформление заказа</span>
+    <button class="pnl-close" onclick="closeCheckout()">✕</button>
+  </div>
+  <div class="co-body">
+    <div class="co-steps-nav">
+      <span class="co-sn active" id="csn0">Доставка</span>
+      <span class="co-sn" id="csn1">Оплата</span>
+      <span class="co-sn" id="csn2">Подтверждение</span>
+    </div>
+    <!-- STEP 1: DELIVERY -->
+    <div class="co-step active" id="cStep0">
+      <div class="co-step-title">Адрес доставки</div>
+      <div class="acc-form">
+        <div class="fld-row">
+          <div class="fld"><label>Имя</label><input type="text" id="coFirst" placeholder="Алия"></div>
+          <div class="fld"><label>Фамилия</label><input type="text" id="coLast" placeholder="Сейткали"></div>
+        </div>
+        <div class="fld"><label>Email</label><input type="email" id="coEmail" placeholder="your@email.com"></div>
+        <div class="fld"><label>Телефон</label><input type="tel" id="coPhone" placeholder="+7 (___) ___ __ __"></div>
+        <div class="fld"><label>Город</label><input type="text" id="coCity" placeholder="Алматы"></div>
+        <div class="fld"><label>Улица и дом</label><input type="text" id="coAddr" placeholder="ул. Достык, 5, кв. 12"></div>
+        <div class="fld-row">
+          <div class="fld"><label>Индекс</label><input type="text" id="coZip" placeholder="050000"></div>
+          <div class="fld"><label>Страна</label><input type="text" id="coCountry" value="Казахстан"></div>
+        </div>
+        <button class="co-btn" onclick="coNextStep()">Продолжить → Оплата</button>
+      </div>
+    </div>
+    <!-- STEP 2: PAYMENT -->
+    <div class="co-step" id="cStep1">
+      <div class="co-step-title">Способ оплаты</div>
+      <div class="payment-methods">
+        <div class="pm sel" onclick="selectPM(this)">Kaspi Pay</div>
+        <div class="pm" onclick="selectPM(this)">Visa / MC</div>
+        <div class="pm" onclick="selectPM(this)">Halyk Pay</div>
+      </div>
+      <div class="acc-form" id="coCardForm">
+        <div class="fld"><label>Номер карты</label><input type="text" id="coCard" placeholder="0000 0000 0000 0000" maxlength="19"></div>
+        <div class="fld-row">
+          <div class="fld"><label>Срок действия</label><input type="text" id="coExp" placeholder="MM/YY" maxlength="5"></div>
+          <div class="fld"><label>CVV</label><input type="text" id="coCvv" placeholder="•••" maxlength="3"></div>
+        </div>
+      </div>
+      <div class="co-summary" style="margin-top:1.5rem;">
+        <div class="co-step-title">Итог заказа</div>
+        <div id="coSummaryItems"></div>
+        <div class="co-sum-total"><span>Итого</span><span class="co-total-price" id="coTotalDisplay"></span></div>
+      </div>
+      <button class="co-btn" onclick="coNextStep()">Подтвердить заказ</button>
+      <button class="co-back" onclick="coPrevStep()">← Назад</button>
+    </div>
+    <!-- STEP 3: SUCCESS -->
+    <div class="co-step" id="cStep2">
+      <div class="co-success">
+        <div class="cs-icon">◈</div>
+        <h3>Заказ принят</h3>
+        <p>Спасибо за ваш заказ.<br>Подтверждение отправлено на вашу почту.<br><br>Ожидаемая доставка: <strong>6–12 мая</strong><br>Номер заказа: <strong id="coOrderNum"></strong></p>
+        <button class="co-btn" style="margin-top:1.5rem;" onclick="closeCheckout();clearCart()">Закрыть</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRE-FOOTER -->
+<div class="prefooter">
+  <div class="pf-inner">
+    <div class="pf-col">
+      <h4>Послепродажное обслуживание CHANEL</h4>
+      <p>Сотрудники CHANEL ответят на вопросы с понедельника по пятницу, кроме праздничных дней, с 10:00 до 18:00 по телефону <a>+7 727 355 55 55</a>.</p>
+    </div>
+    <div class="pf-col">
+      <h4>Найти бутик</h4>
+      <p>Укажите своё местоположение, чтобы найти ближайшие бутики CHANEL</p>
+      <div class="pf-search">
+        <input type="text" placeholder="Город или почтовый индекс">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg>
+      </div>
+    </div>
+    <div class="pf-col">
+      <h4>Информационное письмо</h4>
+      <p>Подпишитесь, чтобы быть в курсе последних новостей CHANEL</p>
+      <br><a>Подписаться</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="ft-logo">CHANEL</div>
+  <div class="ft-cols">
+    <div class="ft-col">
+      <h5>Коллекции</h5>
+      <ul>
+        <li><a onclick="filterByCategory('couture')">Haute Couture</a></li>
+        <li><a onclick="filterByCategory('classic')">Classic</a></li>
+        <li><a onclick="filterByCategory('limited')">Limited Edition</a></li>
+        <li><a onclick="filterByCategory('archive')">Archive</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h5>Онлайн-услуги</h5>
+      <ul>
+        <li><a onclick="openAccount()">Учётная запись</a></li>
+        <li><a onclick="openWishlist()">Избранное</a></li>
+        <li><a onclick="openCart()">Корзина</a></li>
+        <li><a>FAQ</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h5>Услуги бутика</h5>
+      <ul>
+        <li><a>Найти магазин</a></li>
+        <li><a>Подлинность изделий</a></li>
+        <li><a>Уход за изделиями</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h5>Дом Chanel</h5>
+      <ul>
+        <li><a>Карьера</a></li>
+        <li><a>Политика конфиденциальности</a></li>
+        <li><a>Борьба с контрафактом</a></li>
+        <li><a>Финансовые результаты</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <div class="ft-contrast">Включить режим высокой контрастности<button class="toggle"></button></div>
+    <div class="ft-lang">Казахстан — РУССКИЙ ∨</div>
+  </div>
+</footer>
+
+<script>
+// ══════════════════════════════════════════════
+// DATA — каждый товар уникален
+// ══════════════════════════════════════════════
+const P=[
+  {
+    id:1,cat:'classic',badge:'Iconic',year:2012,name:'Jumbo Classic Lambskin Double Flap',
+    lastItem:false,
+    delivery:'Доставка: 5–7 мая 2025',
+    collection:'Classic Flap — Jumbo, 2012–2013',
+    designer:'Карл Лагерфельд',
+    material:'Кожа ягнёнка lambskin (чёрная)',
+    hardware:'Позолоченная фурнитура 24k',
+    lining:'Бургундский атлас',
+    closure:'Двойной замок-флэп CC',
+    history:'Представленная на Farfetch как одна из самых востребованных архивных моделей, эта сумка формата Jumbo 2012–2013 годов выпуска — эталон классики. Мягкий чёрный lambskin с ромбовидной стёжкой и золотой цепочкой с кожаным переплётом олицетворяет вечную элегантность Chanel. Double Flap обеспечивает двойную защиту содержимого и дополнительный внешний карман. Серийный номер подтверждён.',
+    details:'Формат Jumbo · Двойной флэп · Золотая цепочка · Ширина: 30 см · Серийный номер: 17XXXXXX',
+    price:5490000,state:'excellent',color:'black',
+    img:'data:image/avif;base64,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'
+  },
+  {
+    id:2,cat:'classic',badge:'Classic',year:2018,name:'Medium Classic Double Flap Quilted',
+    lastItem:true,
+    delivery:'Доставка: 3–6 мая 2025',
+    collection:'Classic Flap — Medium, 2018–2019',
+    designer:'Карл Лагерфельд',
+    material:'Кожа ягнёнка lambskin (чёрная)',
+    hardware:'Позолоченная фурнитура',
+    lining:'Шёлковая подкладка',
+    closure:'Поворотный замок CC',
+    history:'Культовая Medium Classic Double Flap 2018–2019 годов — один из наиболее стабильных инвестиционных предметов на рынке вторичной роскоши. Доступна на Farfetch в состоянии «Отличное». Ромбовидная стёжка выполнена вручную, каждый бриллиантовый квадрат идеально симметричен. Золотая цепочка-ремешок с кожаным переплётом — неизменная подпись дома Chanel с 1983 года.',
+    details:'Формат Medium · Ромбовидная стёжка · Кожаный переплёт цепочки · Ширина: 25,5 см',
+    price:4150000,state:'excellent',color:'black',
+    img:'https://cdn-images.farfetch-contents.com/18/79/27/26/18792726_40306848_1000.jpg'
+  },
+  {
+    id:3,cat:'classic',badge:'Classic',year:2015,name:'Wallet on Chain WOC',
+    lastItem:false,
+    delivery:'Доставка: 8–12 мая 2025',
+    collection:'Classic — Wallet on Chain',
+    designer:'Карл Лагерфельд',
+    material:'Кожа ягнёнка lambskin (чёрная)',
+    hardware:'Позолоченная фурнитура',
+    lining:'Кожаная подкладка',
+    closure:'Замок CC на повороте',
+    history:'Wallet on Chain — миниатюрный шедевр, появившийся в арсенале Chanel в конце 1990-х. Модель 2015 года из мягкого чёрного lambskin вмещает телефон, карты и купюры — ровно столько, сколько нужно настоящей женщине Chanel. Золотая цепочка позволяет носить на плече или как клатч. Именно принцип «ничего лишнего» был главным кредо самой Мадемуазель.',
+    details:'Три отделения для карт · Кармашек для телефона · Золотая цепочка 80 см · Ширина: 19 см',
+    price:1870000,state:'good',color:'black',
+    img:'https://cdn-images.farfetch-contents.com/16/14/78/34/16147834_30215432_1000.jpg'
+  },
+  {
+    id:4,cat:'limited',badge:'Rare',year:2016,name:'Small Boy Flap Tweed',
+    lastItem:true,
+    delivery:'Доставка: 2–5 мая 2025',
+    collection:'Boy Chanel — твид, 2016',
+    designer:'Карл Лагерфельд',
+    material:'Твид (чёрно-белый)',
+    hardware:'Рутениевая фурнитура',
+    lining:'Кожа телёнка',
+    closure:'Замок-рокер с двойным CC',
+    history:'Boy Chanel — дерзкий ответ Лагерфельда традиционной женственности, впервые показанный в 2011 году. Версия 2016 года в характерном чёрно-белом твиде — редкая коллекционная вещь. Рутениевая фурнитура с матовым блеском придаёт сумке андрогинный характер, твидовая текстура — подлинно французский дух. Доступна на Farfetch в состоянии «Хорошее».',
+    details:'Формат Small · Твидовая отделка · Рутениевая фурнитура · Ширина: 20 см',
+    price:1640000,state:'good',color:'beige',
+    img:'https://cdn-images.farfetch-contents.com/17/04/03/05/17040305_32530606_1000.jpg'
+  },
+  {
+    id:5,cat:'limited',badge:'Rare',year:2019,name:'2019 Quilted Lambskin Side Packs Flap',
+    lastItem:false,
+    delivery:'Доставка: 10–15 мая 2025',
+    collection:'Side Packs Flap — 2019',
+    designer:'Карл Лагерфельд',
+    material:'Кожа ягнёнка lambskin (чёрная)',
+    hardware:'Золотая фурнитура CC',
+    lining:'Атласная подкладка',
+    closure:'Замок-флэп CC',
+    history:'Эта редкая модель 2019 года с боковыми кармашками (Side Packs) стала одним из самых обсуждаемых предметов сезона. Боковые карманы на молниях добавляют функциональность без ущерба для силуэта — нестандартное дизайнерское решение для консервативного дома Chanel. Доступна на Farfetch в состоянии «Хорошее».',
+    details:'Боковые карманы на молниях · Золотая фурнитура · Кожаная подкладка · Ширина: 23 см',
+    price:2390000,state:'good',color:'black',
+    img:'https://cdn-images.farfetch-contents.com/18/15/46/70/18154670_38073064_1000.jpg'
+  },
+  {
+    id:6,cat:'archive',badge:'Archive',year:2013,name:'2013–2014 Paris Dallas Métiers d\'Art Classic Flap',
+    lastItem:true,
+    delivery:'Доставка: 7–10 мая 2025',
+    collection:'Métiers d\'Art Paris-Dallas, 2013–2014',
+    designer:'Карл Лагерфельд',
+    material:'Телячья кожа с вышивкой',
+    hardware:'Позолоченная фурнитура',
+    lining:'Шёлковая подкладка',
+    closure:'Поворотный замок CC',
+    history:'Коллекция Paris-Dallas 2013–2014 вдохновлена ковбойской Америкой — настоящий культурный манифест Лагерфельда. Показ состоялся в Dallas Fair Park, а сумки украшены этническими мотивами и вышивкой в духе Дикого Запада. Этот Medium Classic Flap — редкий экземпляр из коллекции, которую критики называют одной из лучших в карьере мастера.',
+    details:'Коллекция Métiers d\'Art · Ручная вышивка · Серийный номер подтверждён · Ширина: 25 см',
+    price:13300000,state:'excellent',color:'beige',
+    img:'https://cdn-images.farfetch-contents.com/20/26/43/40/20264340_50484050_1000.jpg'
+  },
+  {
+    id:7,cat:'archive',badge:'Archive',year:2010,name:'2010s 2.55 Reissue Lucky Charms',
+    lastItem:false,
+    delivery:'Доставка: 12–18 мая 2025',
+    collection:'2.55 Reissue Lucky Charms',
+    designer:'Карл Лагерфельд',
+    material:'Состаренная телячья кожа (чёрная)',
+    hardware:'Антикварная позолоченная фурнитура + шармы',
+    lining:'Бургундский атлас',
+    closure:'Замок «Мадемуазель»',
+    history:'Культовый Reissue 2.55 с коллекционными брелоками-шармами — настоящий объект желания для ценителей. Шармы в форме четырёхлистного клевера, звезды и CC добавляют игривость иконическому силуэту 1955 года. Доступна на Farfetch в состоянии «Отличное». Один из самых высоко ценимых архивных предметов на вторичном рынке.',
+    details:'Брелоки-шармы · Замок «Мадемуазель» · Бургундская атласная подкладка · Ширина: 25,5 см',
+    price:16000000,state:'excellent',color:'black',
+    img:'https://cdn-images.farfetch-contents.com/17/85/32/02/17853202_36760398_1000.jpg'
+  },
+  {
+    id:8,cat:'classic',badge:'Classic',year:2008,name:'2008 Classic Flap Shoulder Bag',
+    lastItem:false,
+    delivery:'Доставка: 6–9 мая 2025',
+    collection:'Classic Flap — 2008',
+    designer:'Карл Лагерфельд',
+    material:'Икорная кожа caviar (чёрная)',
+    hardware:'Серебряная фурнитура',
+    lining:'Кожаная подкладка',
+    closure:'Поворотный замок CC',
+    history:'Classic Flap 2008 года из прочной икорной кожи caviar с серебряной фурнитурой — любимое сочетание ценителей классики. Кожа caviar устойчива к царапинам и сохраняет форму со временем, что делает её идеальным выбором для повседневной носки. Представлена на Farfetch в хорошем состоянии с минимальными следами использования.',
+    details:'Кожа caviar · Серебряная фурнитура · Внешний карман · Ширина: 25,5 см · 2008 г.',
+    price:5310000,state:'good',color:'black',
+    img:'https://cdn-images.farfetch-contents.com/16/77/44/92/16774492_33507340_1000.jpg'
+  },
+  {
+    id:9,cat:'limited',badge:'Limited',year:2021,name:'2021–2024 Mini Square Velvet Camellia Embossed Flap',
+    lastItem:false,
+    delivery:'Доставка: 4–7 мая 2025',
+    collection:'Mini Flap — бархатная камелия, 2021–2024',
+    designer:'Вирджини Виар',
+    material:'Бархат с тиснением камелии (жёлтый)',
+    hardware:'Золотая фурнитура CC',
+    lining:'Кожаная подкладка',
+    closure:'Замок CC на повороте',
+    history:'Камелия — любимый цветок Мадемуазель Шанель, давно ставший символом дома. Вирджини Виар переосмыслила этот мотив, создав бархатный Mini Flap с рельефным тиснением. Яркий жёлтый цвет и бархатная текстура делают эту сумку исключением из правил и желанным предметом для коллекционеров. Состояние: Хорошее.',
+    details:'Бархат с тиснением · Мотив камелии · Золотая цепочка · Ширина: 17 см',
+    price:1510000,state:'good',color:'gold',
+    img:'https://cdn-images.farfetch-contents.com/24/17/38/15/24173815_53842740_1000.jpg'
+  },
+  {
+    id:10,cat:'limited',badge:'Rare',year:2021,name:'2021–2024 Small Quilted Caviar Duma Backpack',
+    lastItem:false,
+    delivery:'Доставка: 9–14 мая 2025',
+    collection:'Duma Backpack — Small, 2021–2024',
+    designer:'Вирджини Виар',
+    material:'Икорная кожа caviar (розовая)',
+    hardware:'CC поворотный замок + золотая фурнитура',
+    lining:'Кожаная подкладка',
+    closure:'CC turn-lock + кулиска',
+    history:'Duma Backpack — редкий для дома Chanel формат рюкзака, переосмысленный Вирджини Виар в духе современной женщины. Розовый цвет икорной кожи с ромбовидной стёжкой — смелое и игривое решение. Тиснёная кожа caviar обеспечивает долговечность, а фирменный замок CC на клапане не оставляет сомнений в принадлежности к дому Chanel. Состояние: Отличное.',
+    details:'Формат Small · Рюкзак · Икорная кожа · Розовый · Ширина: 21 см',
+    price:2210000,state:'excellent',color:'beige',
+    img:'https://cdn-images.farfetch-contents.com/20/57/01/72/20570172_51256710_1000.jpg'
+  },
+  {
+    id:11,cat:'archive',badge:'Archive',year:2015,name:'2015 Gabrielle Brasserie Shoulder Bag',
+    lastItem:true,
+    delivery:'Доставка: 15–20 мая 2025',
+    collection:'Gabrielle — 2015',
+    designer:'Карл Лагерфельд',
+    material:'Телячья кожа (бежевый/чёрный)',
+    hardware:'Золотая + серебряная фурнитура (микс)',
+    lining:'Текстильная подкладка',
+    closure:'Молния + магнитная застёжка',
+    history:'Gabrielle — дань уважения первому имени создательницы дома, Габриэль Бонёр Шанель. Модель 2015 года из мягкой телячьей кожи с уникальным двойным ремешком — смешение золотой и серебряной фурнитуры стало торговой маркой. Редкий архивный экземпляр в отличном состоянии, доступный на Farfetch. Названа в честь имени самой Мадемуазель.',
+    details:'Двойной ремешок · Микс золото/серебро · Три отделения · Ширина: 28 см',
+    price:13300000,state:'excellent',color:'beige',
+    img:'https://cdn-images.farfetch-contents.com/19/65/62/24/19656224_44564460_1000.jpg'
+  },
+  {
+    id:12,cat:'classic',badge:'Classic',year:2018,name:'2018 Medium Quilted Iridescent Lambskin O Case',
+    lastItem:false,
+    delivery:'Доставка: 5–8 мая 2025',
+    collection:'O Case — иризирующий lambskin, 2018',
+    designer:'Карл Лагерфельд',
+    material:'Иризирующая кожа ягнёнка (серебристо-белая)',
+    hardware:'Серебряная фурнитура CC',
+    lining:'Кожаная подкладка',
+    closure:'Молния с логотипом CC',
+    history:'O Case — культовый клатч круглой формы, один из самых узнаваемых силуэтов Chanel. Версия 2018 года в иризирующей коже меняет цвет от серебристого до жемчужно-белого при разном освещении. Идеальный вечерний аксессуар — вмещает телефон, ключи и карточки. Доступен на Farfetch, состояние безупречное.',
+    details:'Круглая форма · Иризирующий эффект · Молния CC · Диаметр: 19 см',
+    price:770000,state:'excellent',color:'white',
+    img:'https://cdn-images.farfetch-contents.com/18/14/77/27/18147727_37946930_1000.jpg'
+  },
+  {
+    id:13,cat:'archive',badge:'Archive',year:2011,name:'2011 Medium Garden of Versailles Double Flap',
+    lastItem:false,
+    delivery:'Доставка: 18–25 мая 2025',
+    collection:'Garden of Versailles — Métiers d\'Art 2011',
+    designer:'Карл Лагерфельд',
+    material:'Шёлк + кожа с вышивкой',
+    hardware:'Позолоченная фурнитура',
+    lining:'Шёлковая подкладка',
+    closure:'Поворотный замок CC',
+    history:'Коллекция Métiers d\'Art 2011 «Garden of Versailles» — одна из самых роскошных в истории дома. Показ проходил в Версальском дворце, каждая сумка вышита вручную мастерами Maison Lesage. Цветочные мотивы и листья создавались иглой в течение сотен часов. Редчайший экземпляр, стоимость которого на вторичном рынке постоянно растёт.',
+    details:'Ручная вышивка Lesage · Шёлковая основа · Версальские мотивы · Ширина: 25 см',
+    price:19720000,state:'good',color:'beige',
+    img:'https://cdn-images.farfetch-contents.com/18/97/15/70/18971570_42037750_1000.jpg'
+  },
+  {
+    id:14,cat:'classic',badge:'Classic',year:2016,name:'2016 Coco Cocoon Trolley Bag',
+    lastItem:false,
+    delivery:'Доставка: 11–16 мая 2025',
+    collection:'Coco Cocoon — 2016',
+    designer:'Карл Лагерфельд',
+    material:'Нейлон стёганый с кожаной отделкой',
+    hardware:'Серебряная фурнитура CC',
+    lining:'Нейлоновая подкладка',
+    closure:'Молния + логотип CC',
+    history:'Coco Cocoon — функциональный ответ Chanel на запрос современной путешественницы. Стёганый нейлон имитирует традиционную ромбовидную стёжку, но остаётся лёгким и водостойким. Версия в формате тролли (чемодан-кабин) — раритет на рынке, мечта для тех, кто хочет летать first class без страха за содержимое. Доступна на Farfetch в хорошем состоянии.',
+    details:'Формат тролли · Стёганый нейлон · Выдвижная ручка · Колёса · Высота: 55 см',
+    price:7960000,state:'good',color:'black',
+    img:'https://cdn-images.farfetch-contents.com/16/56/38/57/16563857_32596770_1000.jpg'
+  },
+  {
+    id:15,cat:'archive',badge:'Archive',year:1997,name:'1997 Both Side Classic Flap',
+    lastItem:false,
+    delivery:'Доставка: 20–28 мая 2025',
+    collection:'Both Side Classic Flap — 1997',
+    designer:'Карл Лагерфельд',
+    material:'Кожа ягнёнка lambskin (чёрная)',
+    hardware:'Позолоченная фурнитура 24k',
+    lining:'Атласная подкладка',
+    closure:'Двойной флэп (обе стороны)',
+    history:'Исключительно редкая архивная модель 1997 года — Both Side Classic Flap открывается с обеих сторон, предоставляя двойной доступ к содержимому. Это уникальная инженерная концепция, которая производилась ограниченное время и сегодня является предметом охоты для самых серьёзных коллекционеров Chanel. Доступна на Farfetch в хорошем состоянии — редчайший шанс.',
+    details:'Открывается с двух сторон · Архив 1997 · Золотая цепочка · Ширина: 25,5 см',
+    price:4210000,state:'good',color:'black',
+    img:'https://cdn-images.farfetch-contents.com/17/31/68/82/17316882_34470012_1000.jpg'
+  }
+];
+
+const stateLabel={'new-tag':'Новое с биркой','new':'Новое','excellent':'Отличное','good':'Хорошее','fair':'Удовлетворительное'};
+const fmt=n=>Math.round(n).toLocaleString('ru-RU');
+
+let cart=[];
+let wishlist=new Set();
+let modalId=null;
+let coStep=0;
+let currentUser=null;
+
+(function init(){
+  try{cart=JSON.parse(localStorage.getItem('ch_kzt')||'[]');}catch(e){}
+  try{wishlist=new Set(JSON.parse(localStorage.getItem('ch_wish')||'[]'));}catch(e){}
+  try{currentUser=JSON.parse(localStorage.getItem('ch_user')||'null');}catch(e){}
+  applyFilters();badge();wBadge();
+  if(currentUser)showLoggedIn(currentUser);
+})();
+
+// ── FILTERS ──────────────────────────────────
+function applyFilters(){
+  const q=document.getElementById('si').value.toLowerCase();
+  const sort=document.getElementById('sortSel').value;
+  const stateVals=[...document.querySelectorAll('[data-filter="state"]:checked')].map(x=>x.value);
+  const colorVals=[...document.querySelectorAll('[data-filter="color"]:checked')].map(x=>x.value);
+  const catVals  =[...document.querySelectorAll('[data-filter="cat"]:checked')].map(x=>x.value);
+  const pmin=parseFloat(document.getElementById('pmin').value)||0;
+  const pmax=parseFloat(document.getElementById('pmax').value)||Infinity;
+  let f=P.filter(p=>{
+    if(q&&!p.name.toLowerCase().includes(q)&&!p.history.toLowerCase().includes(q)&&!p.material.toLowerCase().includes(q)) return false;
+    if(stateVals.length&&!stateVals.includes(p.state)) return false;
+    if(colorVals.length&&!colorVals.includes(p.color)) return false;
+    if(catVals.length&&!catVals.includes(p.cat)) return false;
+    if(p.price<pmin||p.price>pmax) return false;
+    return true;
+  });
+  if(sort==='price-asc')  f.sort((a,b)=>a.price-b.price);
+  if(sort==='price-desc') f.sort((a,b)=>b.price-a.price);
+  if(sort==='name-asc')   f.sort((a,b)=>a.name.localeCompare(b.name));
+  if(sort==='year-desc')  f.sort((a,b)=>b.year-a.year);
+  document.getElementById('vc').textContent=f.length;
+  const g=document.getElementById('grid');
+  if(!f.length){g.innerHTML=`<div class="empty">Ничего не найдено</div>`;return;}
+  g.innerHTML=f.map(p=>`
+    <div class="card" onclick="openModal(${p.id})">
+      <div class="cimg">
+        <img src="${p.img}" alt="${p.name}" loading="lazy">
+        <span class="badge">${p.badge}</span>
+        <button class="wish-ico${wishlist.has(p.id)?' liked':''}" id="wc${p.id}" onclick="event.stopPropagation();toggleWish(${p.id})">
+          <svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+        </button>
+      </div>
+      <div class="cbody">
+        <span class="ccat">Pre-Owned · ${p.cat} · ${p.year}</span>
+        <h3 class="cname">${p.name}</h3>
+        <p class="cmaterial">${p.material}</p>
+        <p class="cstate">${stateLabel[p.state]}</p>
+        <div class="cbot">
+          <span class="cprice">${fmt(p.price)} <small>₸</small></span>
+          <button class="abtn" id="b${p.id}" onclick="event.stopPropagation();addItem(${p.id},event)">В корзину</button>
+        </div>
+      </div>
+    </div>`).join('');
+}
+function clearFilters(){
+  document.querySelectorAll('[data-filter]').forEach(x=>x.checked=false);
+  document.getElementById('pmin').value='';document.getElementById('pmax').value='';
+  document.getElementById('si').value='';applyFilters();
+}
+function toggleFG(id){
+  const el=document.getElementById(id);
+  el.classList.toggle('open');
+  el.querySelector('.arr').textContent=el.classList.contains('open')?'∧':'∨';
+}
+function filterByCategory(cat){
+  document.querySelectorAll('[data-filter="cat"]').forEach(x=>x.checked=false);
+  if(cat){const el=document.querySelector(`[data-filter="cat"][value="${cat}"]`);if(el)el.checked=true;}
+  document.querySelector('.shop').scrollIntoView({behavior:'smooth'});
+  applyFilters();
+}
+function sortBy(val){
+  document.getElementById('sortSel').value=val;
+  document.querySelector('.shop').scrollIntoView({behavior:'smooth'});
+  applyFilters();
+}
+function openSearch(){document.getElementById('si').focus();document.querySelector('.shop').scrollIntoView({behavior:'smooth'});}
+
+// ── MODAL ──────────────────────────────────
+let activeTab=0;
+function openModal(id){
+  const p=P.find(x=>x.id===id);if(!p)return;
+  modalId=id;activeTab=0;
+  document.getElementById('mImg').src=p.img;
+  document.getElementById('mPre').textContent=`Pre-Owned · ${p.year}`;
+  document.getElementById('mName').textContent=p.name;
+  document.getElementById('mCollTag').textContent=p.collection;
+  document.getElementById('mtc0').textContent=p.history;
+  document.getElementById('mMatGrid').innerHTML=`
+    <div class="mg-item"><span class="mg-label">Дизайнер</span><span class="mg-val">${p.designer}</span></div>
+    <div class="mg-item"><span class="mg-label">Материал</span><span class="mg-val">${p.material}</span></div>
+    <div class="mg-item"><span class="mg-label">Фурнитура</span><span class="mg-val">${p.hardware}</span></div>
+    <div class="mg-item"><span class="mg-label">Подкладка</span><span class="mg-val">${p.lining}</span></div>
+    <div class="mg-item"><span class="mg-label">Застёжка</span><span class="mg-val">${p.closure}</span></div>
+    <div class="mg-item"><span class="mg-label">Год</span><span class="mg-val">${p.year}</span></div>
+  `;
+  document.getElementById('mtc2').textContent=p.details;
+  document.getElementById('mPrice').textContent=fmt(p.price)+' ₸';
+  document.getElementById('mDelivery').innerHTML=`<strong>${p.delivery||'Доставка: уточняйте у менеджера'}</strong>`;
+  document.getElementById('mBread').innerHTML=`EL Pre-Owned › Сумки › <span>${p.cat}</span> › ${p.name}`;
+  const urgentEl=document.querySelector('.modal-urgent');
+  if(urgentEl){urgentEl.style.display=p.lastItem?'block':'none';}
+  // tabs reset
+  document.querySelectorAll('.mtab').forEach((t,i)=>t.classList.toggle('active',i===0));
+  document.querySelectorAll('.modal-tab-content').forEach((c,i)=>c.classList.toggle('active',i===0));
+  // wish btn
+  const wb=document.getElementById('mWishBtn');
+  wb.classList.toggle('wished',wishlist.has(id));
+  document.getElementById('mWishTxt').textContent=wishlist.has(id)?'В избранном':'Избранное';
+  document.getElementById('mOv').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){document.getElementById('mOv').classList.remove('open');document.body.style.overflow='';}
+function handleMOv(e){if(e.target===document.getElementById('mOv'))closeModal();}
+function switchTab(i){
+  activeTab=i;
+  document.querySelectorAll('.mtab').forEach((t,j)=>t.classList.toggle('active',j===i));
+  document.querySelectorAll('.modal-tab-content').forEach((c,j)=>c.classList.toggle('active',j===i));
+}
+function addFromModal(){
+  if(modalId){addItem(modalId,{clientX:window.innerWidth/2,clientY:window.innerHeight/2});closeModal();}
+}
+function toggleWishModal(){
+  if(!modalId)return;
+  toggleWish(modalId);
+  const wished=wishlist.has(modalId);
+  document.getElementById('mWishBtn').classList.toggle('wished',wished);
+  document.getElementById('mWishTxt').textContent=wished?'В избранном':'Избранное';
+}
+
+// ── WISHLIST ──────────────────────────────
+function toggleWish(id){
+  wishlist.has(id)?wishlist.delete(id):wishlist.add(id);
+  localStorage.setItem('ch_wish',JSON.stringify([...wishlist]));
+  wBadge();
+  // update card button if visible
+  const btn=document.getElementById('wc'+id);
+  if(btn)btn.classList.toggle('liked',wishlist.has(id));
+}
+function wBadge(){
+  const n=wishlist.size;
+  const el=document.getElementById('wc');
+  el.textContent=n;el.classList.toggle('v',n>0);
+}
+function openWishlist(){
+  renderWishlist();
+  document.getElementById('wlOv').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeWishlist(){document.getElementById('wlOv').classList.remove('open');document.body.style.overflow='';}
+function renderWishlist(){
+  const b=document.getElementById('wlBody');
+  const items=P.filter(p=>wishlist.has(p.id));
+  if(!items.length){
+    b.innerHTML=`<div class="wl-empty"><div class="wle-icon">♡</div><p>Список пуст</p></div>`;
+    return;
+  }
+  b.innerHTML=items.map(p=>`
+    <div class="wl-item">
+      <img class="wliimg" src="${p.img}" alt="${p.name}" onclick="closeWishlist();openModal(${p.id})">
+      <div class="wlii">
+        <span class="wlicat">${p.badge} · ${p.year}</span>
+        <span class="wlinm" onclick="closeWishlist();openModal(${p.id})">${p.name}</span>
+        <span class="wliprice" style="font-size:.62rem;color:var(--gr);font-style:italic;">${p.material}</span>
+        <span class="wliprice">${fmt(p.price)} ₸</span>
+      </div>
+      <button class="wlidel" onclick="toggleWish(${p.id});renderWishlist()">✕</button>
+    </div>`).join('');
+}
+
+// ── CART ──────────────────────────────────
+function addItem(id,e){
+  const p=P.find(x=>x.id===id),ex=cart.find(x=>x.id===id);
+  ex?ex.qty++:cart.push({...p,qty:1});
+  save();badge();flash(id);fly(e);
+}
+function del(id){cart=cart.filter(x=>x.id!==id);save();badge();renderCart();}
+function clearCart(){cart=[];save();badge();renderCart();}
+function save(){localStorage.setItem('ch_kzt',JSON.stringify(cart));}
+function badge(){
+  const n=cart.reduce((s,i)=>s+i.qty,0);
+  const el=document.getElementById('cc');
+  el.textContent=n;el.classList.toggle('v',n>0);
+}
+function renderCart(){
+  const b=document.getElementById('cpb'),f=document.getElementById('cpf');
+  if(!cart.length){b.innerHTML=`<div class="cpe"><div class="cpei">◇</div><p>Корзина пуста</p></div>`;f.style.display='none';return;}
+  b.innerHTML=cart.map(i=>`
+    <div class="cpi">
+      <img class="cpiimg" src="${i.img}" alt="${i.name}">
+      <div class="cpii">
+        <span class="cpicat">${i.badge} · ${i.cat}</span>
+        <span class="cpinm">${i.name}</span>
+        <span class="cpiprice" style="font-style:italic;font-size:.58rem;">${i.material}</span>
+        <span class="cpiprice">${fmt(i.price)} ₸ × ${i.qty}</span>
+      </div>
+      <button class="cpidel" onclick="del(${i.id})">✕</button>
+    </div>`).join('');
+  const t=cart.reduce((s,i)=>s+i.price*i.qty,0);
+  document.getElementById('cptotal').innerHTML=`${fmt(t)} <small>₸</small>`;
+  f.style.display='block';
+}
+function openCart(){renderCart();document.getElementById('ov').classList.add('open');document.body.style.overflow='hidden';}
+function closeCart(){document.getElementById('ov').classList.remove('open');document.body.style.overflow='';}
+function hov(e){if(e.target===document.getElementById('ov'))closeCart();}
+
+// ── MENU ──────────────────────────────────
+function toggleMenu(){
+  const ov=document.getElementById('menuOv');
+  const open=ov.classList.contains('open');
+  document.getElementById('hamBtn').classList.toggle('active',!open);
+  ov.classList.toggle('open',!open);
+  document.body.style.overflow=open?'':'hidden';
+}
+function closeMenu(){
+  document.getElementById('menuOv').classList.remove('open');
+  document.getElementById('hamBtn').classList.remove('active');
+  document.body.style.overflow='';
+}
+
+// ── ACCOUNT ──────────────────────────────
+function openAccount(){
+  document.getElementById('accPanel').classList.add('open');
+  document.getElementById('accPanel').style.display='block';
+  document.body.style.overflow='hidden';
+  // backdrop
+  showPanelBg('accBg',closeAccount);
+}
+function closeAccount(){
+  document.getElementById('accPanel').classList.remove('open');
+  removePanelBg('accBg');
+  document.body.style.overflow='';
+}
+function switchAccTab(t){
+  document.querySelectorAll('.acc-tab').forEach((el,i)=>el.classList.toggle('active',i===(t==='login'?0:1)));
+  document.getElementById('accLogin').classList.toggle('hidden',t!=='login');
+  document.getElementById('accRegister').classList.toggle('hidden',t==='login');
+}
+function doLogin(){
+  const email=document.getElementById('loginEmail').value;
+  const pass=document.getElementById('loginPass').value;
+  if(!email||!pass){alert('Введите email и пароль');return;}
+  const user={name:email.split('@')[0],email};
+  localStorage.setItem('ch_user',JSON.stringify(user));
+  currentUser=user;showLoggedIn(user);
+}
+function doGuestLogin(){
+  const user={name:'Гость',email:'guest@chanel.kz'};
+  localStorage.setItem('ch_user',JSON.stringify(user));
+  currentUser=user;showLoggedIn(user);
+}
+function doRegister(){
+  const first=document.getElementById('regFirst').value;
+  const last=document.getElementById('regLast').value;
+  const email=document.getElementById('regEmail').value;
+  if(!first||!email){alert('Заполните обязательные поля');return;}
+  const user={name:first+' '+last,email};
+  localStorage.setItem('ch_user',JSON.stringify(user));
+  currentUser=user;showLoggedIn(user);
+}
+function showLoggedIn(user){
+  document.getElementById('accAuth').style.display='none';
+  document.getElementById('accLogged').classList.add('show');
+  document.getElementById('accName').textContent=user.name;
+  document.getElementById('accEmailDisplay').textContent=user.email;
+}
+function doLogout(){
+  localStorage.removeItem('ch_user');currentUser=null;
+  document.getElementById('accAuth').style.display='block';
+  document.getElementById('accLogged').classList.remove('show');
+}
+
+// ── CHECKOUT ──────────────────────────────
+function openCheckout(){
+  if(!cart.length){alert('Корзина пуста');return;}
+  coStep=0;renderCoStep();
+  document.getElementById('coPanel').classList.add('open');
+  document.getElementById('coPanel').style.display='block';
+  document.body.style.overflow='hidden';
+  showPanelBg('coBg',closeCheckout);
+}
+function closeCheckout(){
+  document.getElementById('coPanel').classList.remove('open');
+  removePanelBg('coBg');
+  document.body.style.overflow='';
+}
+function renderCoStep(){
+  document.querySelectorAll('.co-step').forEach((s,i)=>s.classList.toggle('active',i===coStep));
+  document.querySelectorAll('.co-sn').forEach((s,i)=>{
+    s.classList.toggle('active',i===coStep);
+    s.classList.toggle('done',i<coStep);
+  });
+  if(coStep===1){
+    const items=cart.map(i=>`<div class="co-sum-item"><span>${i.name} ×${i.qty}</span><span>${fmt(i.price*i.qty)} ₸</span></div>`).join('');
+    document.getElementById('coSummaryItems').innerHTML=items;
+    const t=cart.reduce((s,i)=>s+i.price*i.qty,0);
+    document.getElementById('coTotalDisplay').textContent=fmt(t)+' ₸';
+  }
+  if(coStep===2){
+    document.getElementById('coOrderNum').textContent='CH-'+Math.floor(100000+Math.random()*900000);
+  }
+}
+function coNextStep(){coStep=Math.min(coStep+1,2);renderCoStep();}
+function coPrevStep(){coStep=Math.max(coStep-1,0);renderCoStep();}
+function selectPM(el){document.querySelectorAll('.pm').forEach(p=>p.classList.remove('sel'));el.classList.add('sel');}
+
+// ── PANEL BG HELPER ──────────────────────
+function showPanelBg(id,closeFn){
+  let bg=document.getElementById(id);
+  if(!bg){
+    bg=document.createElement('div');
+    bg.id=id;
+    bg.style.cssText='position:fixed;inset:0;z-index:299;background:rgba(250,248,245,.65);backdrop-filter:blur(5px);';
+    bg.onclick=closeFn;
+    document.body.appendChild(bg);
+  }
+  bg.style.display='block';
+}
+function removePanelBg(id){
+  const bg=document.getElementById(id);
+  if(bg)bg.style.display='none';
+}
+
+// ── ANIMATIONS ────────────────────────────
+function flash(id){
+  const b=document.getElementById('b'+id);if(!b)return;
+  const o=b.textContent;b.textContent='✓';b.style.background='#333';
+  setTimeout(()=>{b.textContent=o;b.style.background='';},1000);
+}
+function fly(e){
+  const c=document.getElementById('cc').getBoundingClientRect();
+  const d=document.createElement('div');d.className='dot';
+  d.style.left=e.clientX+'px';d.style.top=e.clientY+'px';
+  d.style.setProperty('--dx',(c.left-e.clientX+7)+'px');
+  d.style.setProperty('--dy',(c.top-e.clientY+7)+'px');
+  document.body.appendChild(d);
+  setTimeout(()=>d.remove(),700);
+}
+</script>
+</body>
+</html>
